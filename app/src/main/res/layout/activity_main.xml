@@ -10,5 +10,15 @@
         android:layout_height="match_parent"
         android:id="@+id/statusList"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/accent"
+        android:text="@string/add_new_application"
+        android:textSize="20sp"
+        android:textColor="@color/icons"
+        android:id="@+id/newApp"/>
+
 
 </RelativeLayout>

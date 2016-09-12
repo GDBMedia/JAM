@@ -24,7 +24,7 @@ public class StatusListAdapter  extends RecyclerView.Adapter<StatusListAdapter.S
     public ArrayList<String> mStatusList;
     public Context mContext;
 
-    public StatusListAdapter(ArrayList<String> statusList, Context context){
+    public StatusListAdapter(Context context, ArrayList<String> statusList){
         mStatusList = statusList;
         mContext = context;
     }
