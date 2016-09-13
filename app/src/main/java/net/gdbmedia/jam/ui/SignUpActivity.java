@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
+import net.gdbmedia.jam.Constants;
 import net.gdbmedia.jam.R;
 import net.gdbmedia.jam.models.User;
 
@@ -155,11 +156,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    User currentUser = new User(user.getDisplayName(), user.getUid(), user.getEmail());
-
-                    Gson gson = new Gson();
-                    String json = gson.toJson(currentUser);
-                    mEditor.putString("currentUser", json).apply();
+                    mEditor.putString(Constants.USER_ID_REF, user.getUid()).apply();
 
                     Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

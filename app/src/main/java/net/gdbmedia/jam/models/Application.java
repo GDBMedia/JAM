@@ -16,30 +16,28 @@ public class Application {
     private String jobTitle;
     private double dateApplied;
     private int status;
-    private double followUpTimeFrame;
+    private long followUpTimeFrame;
     private String applicationFormat;
-    private int followUpFormat;
+    private String url;
     private String city;
     private String state;
     private String hiringManagerName;
-    private String wage;
-    private int rank;
     private double interviewDate;
+    private String key;
 
-    public Application(String companyName, String jobTitle, double dateApplied, int status, double followUpTimeFrame, String applicationFormat, int followUpFormat, String city, String state, String hiringManagerName, String wage, int rank, double interviewDate) {
+    public Application(String companyName, String jobTitle, double dateApplied, int status, long followUpTimeFrame, String applicationFormat, String url, String city, String state, String hiringManagerName, double interviewDate, String key) {
         this.companyName = companyName;
         this.jobTitle = jobTitle;
         this.dateApplied = dateApplied;
         this.status = status;
         this.followUpTimeFrame = followUpTimeFrame;
         this.applicationFormat = applicationFormat;
-        this.followUpFormat = followUpFormat;
+        this.url = url;
         this.city = city;
         this.state = state;
         this.hiringManagerName = hiringManagerName;
-        this.wage = wage;
-        this.rank = rank;
         this.interviewDate = interviewDate;
+        this.key = key;
     }
 
 
@@ -75,11 +73,11 @@ public class Application {
         this.status = status;
     }
 
-    public double getFollowUpTimeFrame() {
+    public long getFollowUpTimeFrame() {
         return followUpTimeFrame;
     }
 
-    public void setFollowUpTimeFrame(double followUpTimeFrame) {
+    public void setFollowUpTimeFrame(long followUpTimeFrame) {
         this.followUpTimeFrame = followUpTimeFrame;
     }
 
@@ -89,14 +87,6 @@ public class Application {
 
     public void setApplicationFormat(String applicationFormat) {
         this.applicationFormat = applicationFormat;
-    }
-
-    public int getFollowUpFormat() {
-        return followUpFormat;
-    }
-
-    public void setFollowUpFormat(int followUpFormat) {
-        this.followUpFormat = followUpFormat;
     }
 
     public String getCity() {
@@ -123,28 +113,26 @@ public class Application {
         this.hiringManagerName = hiringManagerName;
     }
 
-    public String getWage() {
-        return wage;
-    }
-
-    public void setWage(String wage) {
-        this.wage = wage;
-    }
-
-    public int getRank() {
-        return rank;
-    }
-
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
-
     public double getInterviewDate() {
         return interviewDate;
     }
 
     public void setInterviewDate(double interviewDate) {
         this.interviewDate = interviewDate;
+    }
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
 
@@ -156,12 +144,10 @@ public class Application {
         result.put(Constants.STATUS, status);
         result.put(Constants.FOLLOW_UP_TIME_FRAME, followUpTimeFrame);
         result.put(Constants.APPLICATION_FORMAT, applicationFormat);
-        result.put(Constants.FOLLOW_UP_FORMAT, followUpFormat);
+        result.put(Constants.URL, url);
         result.put(Constants.CITY, city);
         result.put(Constants.STATE, state);
         result.put(Constants.HIRING_MANAGER_NAME, hiringManagerName);
-        result.put(Constants.RANK, rank);
-        result.put(Constants.WAGE, wage);
         result.put(Constants.INTERVIEW_DATE, interviewDate);
 
         return result;

@@ -23,4 +23,18 @@
     <string name="logout">Logout</string>
     <string name="add_new_application">Add New Application</string>
     <string name="new_app">New App</string>
+    <string name="company_name">Company Name</string>
+    <string name="job_title">Job Title</string>
+    <string name="date_applied">Date Applied</string>
+    <string name="save_application">Save Application</string>
+    <string name="select_status">Select Status</string>
+    <string name="select_follow_up_timeframe">Select Follow Up Timeframe</string>
+    <string name="application_format">Application Format</string>
+    <string name="posting_url">Posting URL</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="hiring_manager_name">Hiring Manager Name</string>
+    <string name="hourly_wage_if_applicable">Hourly Wage (If Applicable)</string>
+    <string name="interview_date">Interview Date</string>
+    <string name="new_application">New Application</string>
 </resources>
