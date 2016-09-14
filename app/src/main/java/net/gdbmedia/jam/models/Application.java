@@ -16,7 +16,7 @@ public class Application {
 
     private String companyName;
     private String jobTitle;
-    private double dateApplied;
+    private long dateApplied;
     private int status;
     private long followUpTimeFrame;
     private String applicationFormat;
@@ -24,12 +24,12 @@ public class Application {
     private String city;
     private String state;
     private String hiringManagerName;
-    private double interviewDate;
+    private long interviewDate;
     private String key;
 
     public Application() {}
 
-    public Application(String companyName, String jobTitle, double dateApplied, int status, long followUpTimeFrame, String applicationFormat, String url, String city, String state, String hiringManagerName, double interviewDate, String key) {
+    public Application(String companyName, String jobTitle, long dateApplied, int status, long followUpTimeFrame, String applicationFormat, String url, String city, String state, String hiringManagerName, long interviewDate, String key) {
         this.companyName = companyName;
         this.jobTitle = jobTitle;
         this.dateApplied = dateApplied;
@@ -61,11 +61,11 @@ public class Application {
         this.jobTitle = jobTitle;
     }
 
-    public double getDateApplied() {
+    public long getDateApplied() {
         return dateApplied;
     }
 
-    public void setDateApplied(double dateApplied) {
+    public void setDateApplied(long dateApplied) {
         this.dateApplied = dateApplied;
     }
 
@@ -117,11 +117,11 @@ public class Application {
         this.hiringManagerName = hiringManagerName;
     }
 
-    public double getInterviewDate() {
+    public long getInterviewDate() {
         return interviewDate;
     }
 
-    public void setInterviewDate(double interviewDate) {
+    public void setInterviewDate(long interviewDate) {
         this.interviewDate = interviewDate;
     }
     public String getUrl() {

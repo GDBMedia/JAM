@@ -33,8 +33,13 @@ public class DateUtils {
 
         return formattedDate;
     }
-    public static double setToUnix(String date, String source){
-        double timestamp = 0;
+    public static String formatDate(long unix){
+        Date date = new Date(unix);
+        SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT_OUTPUT_YEAR);
+        return sdf.format(date);
+    }
+    public static long setToUnix(String date, String source){
+        long timestamp = 0;
         try{
             SimpleDateFormat dateFormat = new SimpleDateFormat(source);
             Date parsedDate = dateFormat.parse(date);

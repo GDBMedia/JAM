@@ -64,7 +64,7 @@ public class Constants {
         add(AWAITING_RESPONSE);
         add(HOPEFUL);
     }};
-    public static final Map<String, Integer> STATUS_MAP;
+
     public static final String STATUS_REF = "status";
     public static final String URL = "url";
     public static final String INPUT_FORMAT = "E MMM dd H:mm:ss z yyyy";
@@ -76,15 +76,24 @@ public class Constants {
     public static final String APPLICATIONS_REF = "/applications";
     public static final String STATUS_DB_REF = "status";
 
+    public static final Map<String, Integer> STATUS_MAP;
     static{
         HashMap<String, Integer> status_map = new HashMap<>();
-        status_map.put(ALL_APPLICATIONS, 0);
-        status_map.put(ACCEPTED, 1);
-        status_map.put(REJECTED, 2);
-        status_map.put(AWAITING_RESPONSE, 3);
-        status_map.put(HOPEFUL, 4);
+        for(int i = 0; i< APPLICATION_STATUSES.size(); i++){
+            status_map.put(APPLICATION_STATUSES.get(i), i);
+        }
         STATUS_MAP = Collections.unmodifiableMap(status_map);
     }
+
+    public static final Map<Integer, String> STATUS_MAP_REVERSE;
+    static{
+        HashMap<Integer, String> status_map = new HashMap<>();
+        for(int i = 0; i< APPLICATION_STATUSES.size(); i++){
+            status_map.put(i, APPLICATION_STATUSES.get(i));
+        }
+        STATUS_MAP_REVERSE = Collections.unmodifiableMap(status_map);
+    }
+
     public static final Map<String,Long> FOLLOW_UP_TIMES_MAP;
 
     public static final long ONE_MONTH_UNIX =  2419200000L;

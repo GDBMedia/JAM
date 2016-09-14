@@ -44,7 +44,6 @@ public class NewAppActivity extends AppCompatActivity implements View.OnClickLis
     @Bind(R.id.urlEditText) EditText mUrlEditText;
     @Bind(R.id.cityEditText) EditText mCityEditText;
     @Bind(R.id.hiringManagerEditText) EditText mHiringManagerEditText;
-//    @Bind(R.id.hourlyEditText) EditText mHourlyEditText;
     @Bind(R.id.interviewDateEditText) EditText mInterviewDateEditText;
     @Bind(R.id.saveAppButton) Button mSaveButton;
     private Calendar myCalendar = Calendar.getInstance();
@@ -76,12 +75,10 @@ public class NewAppActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void setSpinners() {
-        ArrayList<String> statusList = new ArrayList<String>(){
-            {add(Constants.ACCEPTED);
-                add(Constants.REJECTED);
-                add(Constants.AWAITING_RESPONSE);
-                add(Constants.HOPEFUL);}
-        };
+        ArrayList<String> statusList = new ArrayList<>();
+        for(int i = 1; i < Constants.APPLICATION_STATUSES.size(); i++){
+            statusList.add(Constants.APPLICATION_STATUSES.get(i));
+        }
         ArrayAdapter<String> statusArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, statusList);
         ArrayAdapter<String> followUpArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, Constants.FOLLOWUP_TIMEFRAME_LIST);
         ArrayAdapter<String> formatArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, Constants.APPLICATION_FORMAT_ARRAY);
@@ -132,6 +129,7 @@ public class NewAppActivity extends AppCompatActivity implements View.OnClickLis
         if(required(mCompanyNameEditText))error = true;
         if(required(mDateEditText))error = true;
         if(required(mStatusSpinner)) error = true;
+        if(required(mJobTitleEditText)) error = true;
 
         if(error) return;
 

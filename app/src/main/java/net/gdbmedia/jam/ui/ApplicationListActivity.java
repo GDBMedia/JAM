@@ -1,10 +1,13 @@
 package net.gdbmedia.jam.ui;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -16,6 +19,7 @@ import com.google.firebase.database.Query;
 
 import net.gdbmedia.jam.Constants;
 import net.gdbmedia.jam.R;
+import net.gdbmedia.jam.adapters.ApplicationAdapter;
 import net.gdbmedia.jam.models.Application;
 
 import java.util.ArrayList;
@@ -25,8 +29,7 @@ import butterknife.ButterKnife;
 
 public class ApplicationListActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
-    @Bind(R.id.test)
-    TextView mTest;
+    @Bind(R.id.applicationsList) RecyclerView mRecyclerView;
     private int mStatus;
     private ChildEventListener mChildEventListener;
     private SharedPreferences mSharedPreferences;
@@ -45,9 +48,15 @@ public class ApplicationListActivity extends AppCompatActivity {
 
         mStatus = intent.getIntExtra(Constants.STATUS_REF, 0);
 
-        setStatusListener();
+        android.support.v7.app.ActionBar ab = getSupportActionBar();
+        ab.setTitle(Constants.STATUS_MAP_REVERSE.get(mStatus));
 
-        mTest.setText(Integer.toString(mStatus));
+        LinearLayoutManager llm = new LinearLayoutManager(ApplicationListActivity.this);
+
+        mRecyclerView.setLayoutManager(llm);
+        mRecyclerView.setHasFixedSize(true);
+
+        setStatusListener();
     }
 
     private void setStatusListener() {
@@ -65,11 +74,7 @@ public class ApplicationListActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Log.d("onChildAdded: " ,dataSnapshot.getValue().toString());
                 mApplications.add(dataSnapshot.getValue(Application.class));
-                for (Application app : mApplications){
-                    Log.d(TAG, "onChildAdded: " + app.getCompanyName());
-                    Log.d(TAG, "onChildAdded: " + app.getDateApplied());
-                    Log.d(TAG, "onChildAdded: " + app.getStatus());
-                }
+                setAdapter();
 
             }
 
@@ -94,5 +99,10 @@ public class ApplicationListActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setAdapter() {
+        ApplicationAdapter adapter = new ApplicationAdapter(ApplicationListActivity.this, mApplications);
+        mRecyclerView.setAdapter(adapter);
     }
 }

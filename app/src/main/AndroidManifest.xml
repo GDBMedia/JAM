@@ -23,7 +23,12 @@
         <activity
             android:name=".ui.SignUpActivity"
             android:theme="@style/LoginTheme" />
-        <activity android:name=".ui.ApplicationListActivity" />
+        <activity android:name=".ui.ApplicationListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity">
+            </meta-data>
+        </activity>
         <activity android:name=".ui.NewAppActivity"
             android:theme="@style/LoginTheme"/>
     </application>
