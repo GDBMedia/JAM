@@ -4,5 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="intput_padding">8dp</dimen>
     <dimen name="title_padding">20dp</dimen>
+    <dimen name="input_margin">20dp</dimen>
 
 </resources>

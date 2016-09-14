@@ -1,6 +1,7 @@
 package net.gdbmedia.jam.ui;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -126,6 +127,14 @@ public class NewAppActivity extends AppCompatActivity implements View.OnClickLis
     private void getFormInfo() {
         Map<String, Object> childUpdates = new HashMap<>();
         mPushKey = mDatabase.child("applications").push().getKey();
+        boolean error = false;
+
+        if(required(mCompanyNameEditText))error = true;
+        if(required(mDateEditText))error = true;
+        if(required(mStatusSpinner)) error = true;
+
+        if(error) return;
+
         String companyName = mCompanyNameEditText.getText().toString();
         String jobTitle = mJobTitleEditText.getText().toString();
         String appDate = mDateEditText.getText().toString();
@@ -137,8 +146,6 @@ public class NewAppActivity extends AppCompatActivity implements View.OnClickLis
         String city = mCityEditText.getText().toString();
         String hiringMangerName = mHiringManagerEditText.getText().toString();
         String interviewDate = mInterviewDateEditText.getText().toString();
-        Log.d(TAG, "onClick: " + Constants.STATUS_MAP.get(status));
-        Log.d(TAG, "onClick: " + Constants.FOLLOW_UP_TIMES_MAP.get(followUpTimeFrame));
         Application application = new Application(companyName, jobTitle, DateUtils.setToUnix(appDate, Constants.DATE_FORMAT_OUTPUT_YEAR),
                                                     Constants.STATUS_MAP.get(status), Constants.FOLLOW_UP_TIMES_MAP.get(followUpTimeFrame),
                                                     applicationFormat, url, city, state, hiringMangerName, DateUtils.setToUnix(interviewDate,
@@ -146,6 +153,17 @@ public class NewAppActivity extends AppCompatActivity implements View.OnClickLis
         Map<String, Object> applicationValues = application.toMap();
         childUpdates.put("/applications/" + mPushKey, applicationValues);
         mDatabase.updateChildren(childUpdates);
+        Intent intent = new Intent(NewAppActivity.this, ApplicationListActivity.class);
+        intent.putExtra(Constants.STATUS_REF, Constants.STATUS_MAP.get(status));
+        startActivity(intent);
+    }
+
+    private boolean required(EditText editText) {
+        if(editText.getText().toString().equals("")){
+            editText.setError(getString(R.string.feild_required));
+            return true;
+        }
+        return false;
     }
 
     private void logMessage(String message) {

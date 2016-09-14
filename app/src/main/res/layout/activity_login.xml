@@ -3,52 +3,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/primary_dark"
     tools:context=".ui.LoginActivity">
 
 
 
-    <android.support.design.widget.TextInputLayout
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/usernameWrapper"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginRight="16dp">-->
+
+        <!--<android.support.design.widget.TextInputEditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:id="@+id/username"-->
+            <!--android:maxLines="1"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="textEmailAddress|textAutoComplete|textAutoCorrect"-->
+            <!--android:hint="@string/user_hint"-->
+            <!--android:textColor="@color/primary_light"/>-->
+
+    <!--</android.support.design.widget.TextInputLayout>-->
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/usernameWrapper"
+        android:inputType="textEmailAddress|textAutoComplete|textAutoCorrect"
+        android:id="@+id/username"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:id="@+id/username"
-            android:maxLines="1"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress|textAutoComplete|textAutoCorrect"
-            android:hint="@string/user_hint"
-            android:textColor="@color/primary_light"/>
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/passwordWrapper"
-        android:layout_below="@+id/usernameWrapper"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
+        android:layout_marginRight="16dp"
+        app:met_primaryColor="@color/accent"
+        app:met_underlineColor="@color/primary_light"
+        app:met_textColor="@color/primary_light"
+        app:met_textColorHint="@color/primary_light"
+        app:met_floatingLabel="highlight"
+        app:met_baseColor="@color/primary_light"
+        app:met_floatingLabelTextColor="@color/primary_light"
+        android:hint="@string/email"/>
 
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/password"
-            android:maxLines="1"
-            android:fontFamily="sans-serif"
-            android:inputType="textPassword"
-            android:hint="@string/pass_hint"
-            android:textColor="@color/primary_light"
-            android:imeOptions="actionGo"
-            />
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:id="@+id/password"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:met_primaryColor="@color/accent"
+        app:met_underlineColor="@color/primary_light"
+        app:met_textColor="@color/primary_light"
+        app:met_textColorHint="@color/primary_light"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelTextColor="@color/primary_light"
+        android:inputType="textPassword"
+        android:hint="@string/pass_hint"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/username"
+        android:imeOptions="actionGo"/>
 
-    </android.support.design.widget.TextInputLayout>
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/passwordWrapper"-->
+        <!--android:layout_below="@+id/username"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginRight="16dp">-->
+
+        <!--<android.support.design.widget.TextInputEditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/password"-->
+            <!--android:maxLines="1"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:inputType="textPassword"-->
+            <!--android:hint="@string/pass_hint"-->
+            <!--android:textColor="@color/primary_light"-->
+            <!--android:imeOptions="actionGo"-->
+            <!--/>-->
+
+    <!--</android.support.design.widget.TextInputLayout>-->
 
 
 
@@ -58,7 +96,7 @@
         android:elevation="6dp"
         android:id="@+id/submit"
         android:text="@string/signin"
-        android:layout_below="@+id/passwordWrapper"
+        android:layout_below="@+id/password"
         android:background="@color/accent"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
@@ -81,7 +119,7 @@
         android:text="@string/full_app_name"
         android:id="@+id/title"
         android:textColor="@color/accent"
-        android:layout_above="@+id/usernameWrapper"
+        android:layout_above="@+id/username"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:textSize="40sp"

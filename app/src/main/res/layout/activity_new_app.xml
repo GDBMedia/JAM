@@ -6,98 +6,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.SignUpActivity"
     android:background="@color/primary_dark">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/new_application"
-        android:textColor="@color/accent"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:id="@+id/title"
-        android:paddingStart="@dimen/intput_padding"
-        android:paddingEnd="@dimen/intput_padding"
-        android:layout_margin="@dimen/title_padding"
-        android:layout_centerHorizontal="true" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/title"
         android:layout_above="@+id/saveAppButton"
         android:isScrollContainer="false">
+
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout">
-
-        <android.support.design.widget.TextInputLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/companyNameWrapper"
-            android:backgroundTint="@color/primary_light"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/companyNameEditText"
-                android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/company_name"
-                android:backgroundTint="@color/primary_light"
-                android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
-                android:layout_marginBottom="@dimen/intput_padding"
-                android:textColor="@color/primary_light"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
+                android:text="@string/new_application"
+                android:textColor="@color/accent"
+                android:layout_centerHorizontal="true"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:id="@+id/title"
+                android:gravity="center"
+                android:paddingStart="@dimen/intput_padding"
+                android:paddingEnd="@dimen/intput_padding"
+                android:layout_marginTop="@dimen/title_padding" />
+        </RelativeLayout>
 
-
-        <android.support.design.widget.TextInputLayout
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
+            android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
+            android:id="@+id/companyNameEditText"
             android:layout_height="wrap_content"
-            android:id="@+id/jobTitleWrapper"
-            android:backgroundTint="@color/primary_light"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/jobTitleEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/job_title"
-                android:backgroundTint="@color/primary_light"
-                android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
-                android:layout_marginBottom="@dimen/intput_padding"
-                android:textColor="@color/primary_light"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_marginLeft="@dimen/input_margin"
+            android:layout_marginRight="@dimen/input_margin"
+            app:met_primaryColor="@color/accent"
+            app:met_underlineColor="@color/primary_light"
+            app:met_textColor="@color/primary_light"
+            app:met_textColorHint="@color/primary_light"
+            app:met_floatingLabel="highlight"
+            app:met_baseColor="@color/primary_light"
+            app:met_helperText="@string/required"
+            app:met_helperTextColor="@color/error"
+            app:met_helperTextAlwaysShown="true"
+            app:met_floatingLabelTextColor="@color/primary_light"
+            android:hint="@string/company_name"/>
 
-        <android.support.design.widget.TextInputLayout
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
+            android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
+            android:id="@+id/jobTitleEditText"
             android:layout_height="wrap_content"
-            android:id="@+id/dateWrapper"
-            android:backgroundTint="@color/primary_light"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
+            android:layout_marginLeft="@dimen/input_margin"
+            android:layout_marginRight="@dimen/input_margin"
+            app:met_primaryColor="@color/accent"
+            app:met_underlineColor="@color/primary_light"
+            app:met_textColor="@color/primary_light"
+            app:met_textColorHint="@color/primary_light"
+            app:met_floatingLabel="highlight"
+            app:met_baseColor="@color/primary_light"
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/dateEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/date_applied"
-                android:inputType="date"
-                android:backgroundTint="@color/primary_light"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/primary_light"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
+            app:met_floatingLabelTextColor="@color/primary_light"
+            android:hint="@string/job_title"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:id="@+id/dateEditText"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/input_margin"
+            android:layout_marginRight="@dimen/input_margin"
+            app:met_primaryColor="@color/accent"
+            app:met_underlineColor="@color/primary_light"
+            app:met_textColor="@color/primary_light"
+            app:met_textColorHint="@color/primary_light"
+            app:met_floatingLabel="highlight"
+            app:met_baseColor="@color/primary_light"
+            app:met_helperText="@string/required"
+            app:met_helperTextColor="@color/error"
+            app:met_helperTextAlwaysShown="true"
+            app:met_floatingLabelTextColor="@color/primary_light"
+            android:hint="@string/date_applied"/>
+
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:id="@+id/status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/select_status"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="@dimen/input_margin"
+            android:layout_marginEnd="@dimen/input_margin"
             android:textColorHint="@color/primary_light"
+            app:met_helperText="@string/required"
+            app:met_helperTextColor="@color/error"
+            app:met_helperTextAlwaysShown="true"
             app:met_floatingLabel="highlight"
             app:met_primaryColor="@color/accent"
             app:met_baseColor="@color/primary_light"
@@ -110,8 +114,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/select_follow_up_timeframe"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="@dimen/input_margin"
+            android:layout_marginEnd="@dimen/input_margin"
             android:textColorHint="@color/primary_light"
             app:met_floatingLabel="highlight"
             app:met_primaryColor="@color/accent"
@@ -125,8 +129,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/application_format"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="@dimen/input_margin"
+            android:layout_marginEnd="@dimen/input_margin"
             android:textColorHint="@color/primary_light"
             app:met_floatingLabel="highlight"
             app:met_primaryColor="@color/accent"
@@ -136,24 +140,22 @@
             app:met_textColorHint="@color/primary_light"
             app:met_floatingLabelTextColor="@color/primary_light" />
 
-        <android.support.design.widget.TextInputLayout
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
+            android:id="@+id/urlEditText"
             android:layout_height="wrap_content"
-            android:id="@+id/urlWrapper"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
+            android:layout_marginLeft="@dimen/input_margin"
+            android:layout_marginRight="@dimen/input_margin"
+            app:met_primaryColor="@color/accent"
+            app:met_underlineColor="@color/primary_light"
+            app:met_textColor="@color/primary_light"
+            app:met_textColorHint="@color/primary_light"
+            app:met_floatingLabel="highlight"
+            app:met_baseColor="@color/primary_light"
+            app:met_floatingLabelTextColor="@color/primary_light"
+            android:inputType="textUri"
+            android:hint="@string/posting_url"/>
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/urlEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/posting_url"
-                android:inputType="textUri"
-                android:backgroundTint="@color/primary_light"
-                android:padding="@dimen/intput_padding"
-                android:textColor="@color/primary_light"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:id="@+id/state"
             android:layout_width="match_parent"
@@ -169,82 +171,55 @@
             app:met_textColor="@color/primary_light"
             app:met_textColorHint="@color/primary_light"
             app:met_floatingLabelTextColor="@color/primary_light" />
-        <android.support.design.widget.TextInputLayout
+
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
+            android:id="@+id/cityEditText"
             android:layout_height="wrap_content"
-            android:id="@+id/cityWrapper"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
+            android:layout_marginLeft="@dimen/input_margin"
+            android:layout_marginRight="@dimen/input_margin"
+            app:met_primaryColor="@color/accent"
+            app:met_underlineColor="@color/primary_light"
+            app:met_textColor="@color/primary_light"
+            app:met_textColorHint="@color/primary_light"
+            app:met_floatingLabel="highlight"
+            app:met_baseColor="@color/primary_light"
+            app:met_floatingLabelTextColor="@color/primary_light"
+            android:inputType="textCapWords|textAutoCorrect"
+            android:hint="@string/city"/>
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/cityEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/city"
-                android:inputType="textCapWords|textAutoCorrect"
-                android:backgroundTint="@color/primary_light"
-                android:layout_marginBottom="@dimen/intput_padding"
-                android:textColor="@color/primary_light"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
+            android:id="@+id/hiringManagerEditText"
             android:layout_height="wrap_content"
-            android:id="@+id/hiringManagerWrapper"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
+            android:layout_marginLeft="@dimen/input_margin"
+            android:layout_marginRight="@dimen/input_margin"
+            app:met_primaryColor="@color/accent"
+            app:met_underlineColor="@color/primary_light"
+            app:met_textColor="@color/primary_light"
+            app:met_textColorHint="@color/primary_light"
+            app:met_floatingLabel="highlight"
+            app:met_baseColor="@color/primary_light"
+            app:met_floatingLabelTextColor="@color/primary_light"
+            android:inputType="textCapWords|textAutoCorrect"
+            android:hint="@string/hiring_manager_name"/>
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/hiringManagerEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hiring_manager_name"
-                android:inputType="textCapWords|textAutoCorrect"
-                android:backgroundTint="@color/primary_light"
-                android:layout_marginBottom="@dimen/intput_padding"
-                android:textColor="@color/primary_light"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/hourlyWrapper"-->
-            <!--android:layout_marginStart="16dp"-->
-            <!--android:layout_marginEnd="16dp">-->
-
-            <!--<android.support.design.widget.TextInputEditText-->
-                <!--android:id="@+id/hourlyEditText"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:hint="@string/hourly_wage_if_applicable"-->
-                <!--android:inputType="textCapWords|textAutoCorrect"-->
-                <!--android:backgroundTint="@color/primary_light"-->
-                <!--android:layout_marginBottom="@dimen/intput_padding"-->
-                <!--android:textColor="@color/primary_light"-->
-                <!--android:textSize="20sp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-        <android.support.design.widget.TextInputLayout
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
+            android:id="@+id/interviewDateEditText"
             android:layout_height="wrap_content"
-            android:id="@+id/interviewDateWrapper"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/interviewDateEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/interview_date"
-                android:inputType="textCapWords|textAutoCorrect"
-                android:backgroundTint="@color/primary_light"
-                android:layout_marginBottom="@dimen/intput_padding"
-                android:textColor="@color/primary_light"
-                android:textSize="20sp" />
-        </android.support.design.widget.TextInputLayout>
-
-
-
-
+            android:layout_marginLeft="@dimen/input_margin"
+            android:layout_marginRight="@dimen/input_margin"
+            app:met_primaryColor="@color/accent"
+            app:met_underlineColor="@color/primary_light"
+            app:met_textColor="@color/primary_light"
+            app:met_textColorHint="@color/primary_light"
+            app:met_floatingLabel="highlight"
+            app:met_baseColor="@color/primary_light"
+            app:met_floatingLabelTextColor="@color/primary_light"
+            android:inputType="textCapWords|textAutoCorrect"
+            android:hint="@string/interview_date"
+            android:layout_marginBottom="@dimen/input_margin"/>
 
     </LinearLayout>
     </ScrollView>

@@ -1,6 +1,7 @@
 package net.gdbmedia.jam.models;
 
 import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
 
 import net.gdbmedia.jam.Constants;
 
@@ -10,6 +11,7 @@ import java.util.Map;
 /**
  * Created by Laker77 on 9/9/2016.
  */
+@IgnoreExtraProperties
 public class Application {
 
     private String companyName;
@@ -24,6 +26,8 @@ public class Application {
     private String hiringManagerName;
     private double interviewDate;
     private String key;
+
+    public Application() {}
 
     public Application(String companyName, String jobTitle, double dateApplied, int status, long followUpTimeFrame, String applicationFormat, String url, String city, String state, String hiringManagerName, double interviewDate, String key) {
         this.companyName = companyName;
@@ -141,6 +145,7 @@ public class Application {
         HashMap<String, Object> result = new HashMap<>();
         result.put(Constants.COMPANY_NAME, companyName);
         result.put(Constants.JOB_TITLE, jobTitle);
+        result.put(Constants.APPLY_DATE, dateApplied);
         result.put(Constants.STATUS, status);
         result.put(Constants.FOLLOW_UP_TIME_FRAME, followUpTimeFrame);
         result.put(Constants.APPLICATION_FORMAT, applicationFormat);
@@ -149,6 +154,7 @@ public class Application {
         result.put(Constants.STATE, state);
         result.put(Constants.HIRING_MANAGER_NAME, hiringManagerName);
         result.put(Constants.INTERVIEW_DATE, interviewDate);
+        result.put(Constants.KEY, key);
 
         return result;
     }

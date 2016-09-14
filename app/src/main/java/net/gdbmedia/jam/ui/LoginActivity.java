@@ -120,12 +120,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void loginWithPassword() {
         String email = mEmail.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
+        boolean error = false;
         if (email.equals("")) {
             mEmail.setError("Please enter your email");
-            return;
+            error = true;
         }
         if (password.equals("")) {
             mPassword.setError("Password cannot be blank");
+            error = true;
+        }
+        if (error){
             return;
         }
 

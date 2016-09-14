@@ -70,6 +70,11 @@ public class Constants {
     public static final String INPUT_FORMAT = "E MMM dd H:mm:ss z yyyy";
     public static final String SOURCE = "M/d/yyyy";
     public static final String USER_ID_REF = "userID";
+    public static final String APPLY_DATE = "dateApplied";
+    public static final String KEY = "key";
+    public static final String USERS_REF = "users/";
+    public static final String APPLICATIONS_REF = "/applications";
+    public static final String STATUS_DB_REF = "status";
 
     static{
         HashMap<String, Integer> status_map = new HashMap<>();
@@ -86,14 +91,18 @@ public class Constants {
     public static final long THREE_WEEK_UNIX =  1814400000L;
     public static final long TWO_WEEK_UNIX =  1209600000L;
     public static final long ONE_WEEK_UNIX = 604800000L;
+    public static final long ZERO =  0;
+
+    public static final String EMPTY = "";
 
     static{
-        HashMap<String, Long> status_map = new HashMap<>();
-        status_map.put(ONE_WEEK, ONE_WEEK_UNIX);
-        status_map.put(TWO_WEEKS, TWO_WEEK_UNIX);
-        status_map.put(THREE_WEEKS, THREE_WEEK_UNIX);
-        status_map.put(ONE_MONTH, ONE_MONTH_UNIX);
-        FOLLOW_UP_TIMES_MAP = Collections.unmodifiableMap(status_map);
+        HashMap<String, Long> follow_up_times = new HashMap<>();
+        follow_up_times.put(ONE_WEEK, ONE_WEEK_UNIX);
+        follow_up_times.put(TWO_WEEKS, TWO_WEEK_UNIX);
+        follow_up_times.put(THREE_WEEKS, THREE_WEEK_UNIX);
+        follow_up_times.put(ONE_MONTH, ONE_MONTH_UNIX);
+        follow_up_times.put(EMPTY, ZERO);
+        FOLLOW_UP_TIMES_MAP = Collections.unmodifiableMap(follow_up_times);
     }
     public static final String DATE_FORMAT_OUTPUT_YEAR = "MMMM d, yyyy";
 }
